@@ -9,7 +9,9 @@
 
         public byte[] SignData(AsymmetricAlgorithm key, byte[] data)
         {
-            return ((DSA) key).SignData(data, HashAlgorithmName.SHA1);
+            var sha1 = SHA1.Create();
+            return ((DSA)key).CreateSignature(sha1.ComputeHash(data));
+            //return ((DSA) key).SignData(data, HashAlgorithmName.SHA1);
         }
 
         public bool VerifySignature(AsymmetricAlgorithm key, byte[] data, byte[] signature)

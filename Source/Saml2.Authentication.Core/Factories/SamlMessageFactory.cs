@@ -57,7 +57,7 @@
             {
                 request.Request.RequestedAuthnContext = new RequestedAuthnContext
                 {
-                    Comparison = Enum.Parse<AuthnContextComparisonType>(identityProviderConfiguration.AuthnContextComparisonType),
+                    Comparison = (AuthnContextComparisonType)Enum.Parse(typeof(AuthnContextComparisonType), identityProviderConfiguration.AuthnContextComparisonType),
                     ComparisonSpecified = true,
                     Items = identityProviderConfiguration.AuthnContextComparisonItems
                 };
